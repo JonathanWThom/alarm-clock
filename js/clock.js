@@ -10,7 +10,7 @@ Clock.prototype.setAlarm = function(time) {
 Clock.prototype.checkAlarm = function() {
 
   if (this.alarm < this.time) {
-    $('#alert').text('alarm!!!!!');
+    $('body').addClass('red');
     this.alarm = undefined;
   }
 }

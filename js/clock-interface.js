@@ -14,7 +14,7 @@ $(document).ready(function(){
     var alarm = $("#alarm").val();
     clock.setAlarm(alarm);
     $(".alarms").text(clock.alarm.format("HH:mm"));
-
+    $(".off").show();
     var alarmId = window.setInterval(function() {
       clock.checkAlarm(); }, 1000);
   });
