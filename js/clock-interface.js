@@ -9,15 +9,26 @@ $(document).ready(function(){
   var timeId = window.setInterval(function() { $('#time').text(clock.time.format("HH:mm:ss")); }, 1000);
 
 
-  $("form").submit(function(event) {
+  $("#set-alarm").submit(function(event) {
     event.preventDefault();
     var alarm = $("#alarm").val();
     clock.setAlarm(alarm);
     $(".alarms").text(clock.alarm.format("HH:mm"));
-    $(".off").show();
+    $("#alarm-control").show();
     var alarmId = window.setInterval(function() {
       clock.checkAlarm(); }, 1000);
+
+      $("#control").submit(function(event){
+        event.preventDefault();
+        clock.turnOffAlarm();
+        window.clearInterval(alarmId);
+        $(".alarms").empty();
+        $('body').removeClass('red');
+        $("#alarm-control").hide();
+      });
   });
+
+
 
 
 });

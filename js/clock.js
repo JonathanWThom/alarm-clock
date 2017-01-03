@@ -11,8 +11,11 @@ Clock.prototype.checkAlarm = function() {
 
   if (this.alarm < this.time) {
     $('body').addClass('red');
-    this.alarm = undefined;
   }
+}
+
+Clock.prototype.turnOffAlarm = function() {
+  this.alarm = undefined;
 }
 
 Clock.prototype.updateTime = function() {
